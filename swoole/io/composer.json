@@ -1,0 +1,16 @@
+{
+    "name": "shineyork/io",
+    "description": "io",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "shineyork",
+        "email": "shineyork@sixstaredu.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "ShineYork\\Io\\": "./src/"
+        }
+    },
+    "require": {}
+}
