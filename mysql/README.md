@@ -1,3 +1,4 @@
+
 Mysql 删除数据表的三种方式详解
 
 1.  drop table tb;
