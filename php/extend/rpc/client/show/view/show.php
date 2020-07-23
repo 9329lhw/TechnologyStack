@@ -1,5 +1,5 @@
 ﻿<?php
-    include_once dirname(dirname(__DIR__)).'/tool/RpcClient.php';
+    include_once dirname(dirname(__DIR__)) . '/tool/RpcClient.php';
     $client=new RpcClient();
 ?>
 <!doctype html>

@@ -25,19 +25,19 @@ class ComposerStaticInita39846943f4329c75303ec497e9d5ffc
     public static $prefixDirsPsr4 = array (
         'Doctrine\\Common\\Annotations\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+            0 => __DIR__ . '/..',
         ),
         'Core\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Core',
+            0 => __DIR__ . '/../..',
         ),
         'App\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/app',
+            0 => __DIR__ . '/../..',
         ),
         'Annotation\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Annotation',
+            0 => __DIR__ . '/../..',
         ),
     );
 
@@ -46,7 +46,7 @@ class ComposerStaticInita39846943f4329c75303ec497e9d5ffc
         array (
             'Doctrine\\Common\\Lexer\\' => 
             array (
-                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+                0 => __DIR__ . '/..',
             ),
         ),
     );

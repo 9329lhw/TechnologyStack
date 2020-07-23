@@ -3,7 +3,7 @@
 $http=new swoole\Http\server('0.0.0.0',9501);
 $http->set([
     'enable_static_handler' => true,
-    'document_root' => __DIR__.'/static',
+    'document_root' => __DIR__ . '/static',
 ]);
 
 //监听http协议
@@ -48,7 +48,7 @@ $http->on('request',function ($request,$response){
 });
 function autoLoad($class){
      $path=\str_replace('\\',DIRECTORY_SEPARATOR,$class).'.php';
-     $classPath=__DIR__.'/'.$path;
+     $classPath= __DIR__ . 'httpServer.php/' .$path;
      if(is_file($classPath)){
             include_once $classPath;
             return;
