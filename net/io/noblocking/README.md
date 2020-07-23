@@ -1,14 +1,12 @@
 # 五大io模型
 
 #### 目录：
-- [x] [阻塞式I/O模型]((blocking) 
+- [x] [阻塞式I/O模型](blocking) 
 
-- [x] [mysql](mysql)
+- [x] [非阻塞式I/O模型](noblocking)
  
-- [x] [redis](redis) 
+- [x] [I/O复用模型](multiplexing) 
   
-- [x] [nginx](nginx) 
+- [x] [信号驱动式I/O模型](signal) 
  
-- [x] [网络通讯](swoole) 
- 
-- [x] [swoole](swoole) 
+- [x] [异步I/O模型](asynchronous) 
