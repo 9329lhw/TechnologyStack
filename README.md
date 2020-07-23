@@ -3,9 +3,9 @@
 
 #### 目录：
 - [x] [php](php) 
-  - [x] [常用函数](redis/Calculator)
-  - [x] [设计模式](redis/Calculator)
-  - [x] [常用算法](redis/Calculator)
+  - [x] [常用函数](php/function)
+  - [x] [设计模式](php/DesignPatterns)
+  - [x] [常用算法](php/DataStructureAndAlgorithm)
 - [x] [mysql](mysql)
   - [x] [物化视图](mysql/Calendar) 
   - [x] [事务与锁基础](mysql/InterActiveStrReplace) 
