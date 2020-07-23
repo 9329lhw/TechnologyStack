@@ -11,7 +11,7 @@
   - [x] [事务与锁基础](mysql/InterActiveStrReplace) 
   - [x] [事务隔离级别与IO的关系](mysql/PersonInfo) 
 - [x] [redis](redis) 
-  - [x] [常用数据类型](redis/Calculator)
+  - [x] [常用数据类型](redis/data)
   - [x] [主从复制](redis/DataStructureAndAlgorithm)
   - [x] [持久化](redis/DataStructureAndAlgorithm)
   - [x] [内存优化](redis/DataStructureAndAlgorithm)
