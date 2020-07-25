@@ -12,12 +12,39 @@
     
     |  命令   | 介绍  |
     |  ----  | ----  |
-    | 单元格  | 单元格 |
-    | 单元格  | 单元格 |
-    
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
 2. hash
     - 2.1.使用场景
     - 2.2.常用命令 
+    
+    |  命令  | 介绍  |
+    |  ----  | ----  |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
 3. list
     - 3.1.使用场景
     - 3.2.常用命令 
+    
+    |  命令  | 介绍  |
+    |  ----  | ----  |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
+    | SET  | SETEX |
+    | SETNX  | 单元格 |
