@@ -30,7 +30,7 @@
             
             ```
         - 1.3.2 常用参数解释
-        ```
+            ```
             --nocheck-replication-filters ：不检查复制过滤器，建议启用。后面可以用
             --databases来指定需要检查的数据库。 
             --no-check-binlog-format : 不检查复制的binlog模式，要是binlog模式是ROW，则会报错。 
@@ -41,7 +41,7 @@
             --host | h= ：Master的地址 
             --user | u= ：用户名 
             --passwork | p=：密码 --Post | P= ：端口
-        ```            
+            ```            
         - 1.3.3 检查过程
             - 1.3.3.1 主库，从库分别创建表
                 ```
@@ -49,7 +49,7 @@
                 create table t ( id int primary key, name varchar(20) );
                 ```
              - 1.3.3.2 主库，从库分别添加数据
-             ```
+                ```
                 主库
                 mysql> use `mytest`; 
                 mysql> insert into t values(1,6); 
@@ -61,34 +61,37 @@
                 mysql> use `test`; 
                 mysql> insert into t values(3,3); 
                 mysql> select * from t;
-            ``` 
+                ``` 
             - 1.3.3.3 进行检测
             ```
                 pt-table-checksum --nocheck-replication-filters --replicate=check_data.checksums 
                 --databases=test --tables=t -- user=root --password=root
                 1.会出如下错误
-                Replica localhost.localdomain has binlog_format MIXED which could cause pt-table-checksum to break replication. 
-                Please read "Replicas using row-based replication" in the LIMITATIONS section of the tool's documentation. 
-                If you understand the risks, specify --no-check- binlog-format to disable this check.
+                Replica localhost.localdomain has binlog_format MIXED which could cause pt-table-checksum to break 
+                replication.Please read "Replicas using row-based replication" in the LIMITATIONS section of the tool's 
+                documentation.If you understand the risks, specify --no-check- binlog-format to disable this check.
                 上面的错误信息主要是因为，检测主库与从库的binlog日志的模式 - 通常来说可以不用改binlog添加 
                 --no-check-binlog-format 跳过检测 但是可能也会出现如下的问题
                 pt-table-checksum --nocheck-replication-filters --replicate=check_data.checksums --no-check-binlog-format 
                 -- databases=test --tables=t --user=root --password=root
                 2.会出如下错误
-                Diffs cannot be detected because no slaves were found. Please read the —recursion-method documentation for information.
-                问题原因是没有找到从库的地址，MySQL在做主从的时候可能会因为环境配置等因素，让pt-table-checksum没有很好地找到从库的地址 检测的方式： 
+                Diffs cannot be detected because no slaves were found. Please read the —recursion-method documentation 
+                for information.
+                问题原因是没有找到从库的地址，MySQL在做主从的时候可能会因为环境配置等因素，让pt-table-checksum
+                没有很好地找到从库的地址 检测的方式： 
                 1. 是否是指定在主库运行进行校验 
                 2. 就是配置--recursion-method参数，然后在从库中指定好对应的地址
                 
-                pt-table-checksum --nocheck-replication-filters --replicate=check_data.checksums --no-check-binlog-format 
-                -- databases=test --tables=t --user=root --password=root
+                pt-table-checksum --nocheck-replication-filters --replicate=check_data.checksums  
+                --no-check-binlog-format -- databases=test --tables=t --user=root --password=root
                 结果
                 TS             ERRORS DIFFS ROWS CHUNKS SKIPPED     TIME      TABLE 
                 09-28T11:46:37    0     1    3     1      0         0.274     test.t
                 结果分析
                 TS ：完成检查的时间。 
                 ERRORS ：检查时候发生错误和警告的数量。 
-                DIFFS ：0表示一致，1表示不一致。当指定--no-replicate-check时，会一直为0，当指定--replicate-check-only会显示不同的信息。 
+                DIFFS ：0表示一致，1表示不一致。当指定--no-replicate-check时，会一直为0，
+                    当指定--replicate-check-only会显示不同的信息。 
                 ROWS ：表的行数。 CHUNKS ：被划分到表中的块的数目。 
                 SKIPPED ：由于错误或警告或过大，则跳过块的数目。 
                 TIME ：执行的时间。 
@@ -97,7 +100,8 @@
             - 1.3.3.4 dsn方法
                 > dsn方法：dsn是参数--recursion-method的一个参数值。注意是dsn，不是dns…   
                 
-                > DSN：DSN，即DATA SOURCE NAME，数据源名称。DSN包含从库的各个连接参数（user、password、port等），由逗号分隔的多个option=value字符串 组成。        
+                > DSN：DSN，即DATA SOURCE NAME，数据源名称。DSN包含从库的各个连接参数（user、password、port等），
+                由逗号分隔的多个option=value字符串 组成。        
                 
                 - 1.3.3.4.1 步骤
                 ```
@@ -119,8 +123,8 @@
                     INSERT INTO mytest.dsns(dsn) VALUES ("h=192.168.81.140,P=3306,u=slave_check,p=root"); 
                     INSERT INTO mytest.dsns(dsn) VALUES ("h=192.168.81.142,P=3306,u=slave_check2,p=root");
                     检测
-                    pt-table-checksum --tables=t --socket=/tmp/mysql.sock --databases=mytest --user=root --password='root' 
-                    -- replicate=check_data.checksum --no-check-binlog-format --recursion-method 
+                    pt-table-checksum --tables=t --socket=/tmp/mysql.sock --databases=mytest --user=root  
+                    --password='root' -- replicate=check_data.checksum --no-check-binlog-format --recursion-method 
                     dsn=t=mytest.dsns,h=192.168.81.140,P=3306,u=slave_check,p=root
                     结果
                     TS            ERRORS DIFFS ROWS CHUNKS SKIPPED    TIME        TABLE 
@@ -172,7 +176,8 @@
         - 1.2.1 pt-heartbeat使用
         ```
             1. 在住上创建一张hearteat表，按照一定的时间频率更新改表的子弹。监控操作运行后，heartbeat表能促使主从同步 
-            2. 连接到从库上检查复制的时间记录，和从库的当前系统时间进行比较，得出时间的差异。 注意在使用的方式就是需要在主库中创建这个表；
+            2. 连接到从库上检查复制的时间记录，和从库的当前系统时间进行比较，得出时间的差异。 
+            注意在使用的方式就是需要在主库中创建这个表；
             use test; 
             CREATE TABLE heartbeat ( 
                 ts VARCHAR (26) NOT NULL, 
@@ -183,10 +188,12 @@
                 exec_master_log_pos bigint unsigned DEFAULT NULL -- SHOW SLAVE STATUS 
             );
             通过pt-heartbeat可以对于mysql中的heartbeat表每隔多久更新一次（注意这个启动操作要在主库服务器上执行）
-            $ pt-heartbeat --user=root --ask-pass --create-table --database test --interval=1 --interval=1 --update --replace --daemonize
+            $ pt-heartbeat --user=root --ask-pass --create-table --database test --interval=1 
+            --interval=1 --update --replace --daemonize
             $ ps -ef | grep pt-heartbeat
             
-            $ pt-heartbeat --database test --table=heartbeat --monitor --user=root --password=root --master-server-id=1 
+            $ pt-heartbeat --database test --table=heartbeat --monitor --user=root 
+            --password=root --master-server-id=1 
             运行结果
             0.02s [ 0.00s, 0.00s, 0.00s ] 
             0.00s [ 0.00s, 0.00s, 0.00s ]
@@ -197,10 +204,13 @@
             - 1.2.2.1 show slave status显示参数Seconds_Behind_Master不为0，这个数值可能会很大
             - 1.2.2.2 show slave status显示参数Relay_Master_Log_File和Master_Log_File显示bin-log的编号相差很大，
             说明bin-log在从库上没有及时同步，所以近期执行的bin-log和当前IO线程所读的bin-log相差很大
-            - 1.2.2.3 mysql的从库数据目录下存在大量mysql-relay-log日志，该日志同步完成之后就会被系统自动删除，存在大量日志，说明主从同步延迟很厉害
+            - 1.2.2.3 mysql的从库数据目录下存在大量mysql-relay-log日志，该日志同步完成之后就会被系统自动删除，
+            存在大量日志，说明主从同步延迟很厉害
     - 1.3.解决方法
-        >对于从库的延时问题最为重要的就是主库与从库之间连接的网咯环境，从库的写入熟读 这两个点 - 其次就是对于主从的架构的优化； 
-        注意：一旦使用了主从必然是会有一定的延时问题，因此我们就需要考虑程序对于延迟的容忍度。 如果是0容忍的话建议还是不用主从了
+        >对于从库的延时问题最为重要的就是主库与从库之间连接的网咯环境，
+        从库的写入熟读 这两个点- 其次就是对于主从的架构的优化； 
+        >注意：一旦使用了主从必然是会有一定的延时问题，因此我们就需要考虑程序对于延迟的容忍度。 
+        如果是0容忍的话建议还是不用主从了
         
         - 1.3.1 MySQL从库产生配置
         ```
@@ -209,19 +219,22 @@
                 而且还影响到MySQL中数据的完整性。对 于“sync_binlog”参数的各种设置的说明如下： 
                     sync_binlog=0，当事务提交之后，MySQL不做fsync之类的磁盘同步指令刷新binlog_cache
                         中的信息 到磁盘，而让Filesystem自行决定什么时候来做同步，或者 cache满了之后才同步到磁盘。 
-                    sync_binlog=n，当每进行n次事务提交之后，MySQL将进行 一次fsync之类的磁盘同步指令来将binlog_cache中的数据强制写入磁盘。 
+                    sync_binlog=n，当每进行n次事务提交之后，MySQL将进行 
+                    一次fsync之类的磁盘同步指令来将binlog_cache中的数据强制写入磁盘。 
                     
-                在MySQL中系统默认的设置是sync_binlog=0，也就是不做任何强制性的磁盘刷新指令，这时候的性能是最好的，但是风险也是最大的。
-                因为一旦系统Crash，在 binlog_cache中的所有binlog信息都会被丢失。而当设置为“1”的时候，是最安全但是性能损耗最大的设置。
-                因为当设置为1的时候，即使系统Crash，也最多丢失 binlog_cache中未完成的一个事务，对实际数据没有任何实质性影响。
-                         
-                从以往经验和相关测试来看，对于高并发事务的系统来说，“sync_binlog”设置为0和设置为1的系统写入性能差距可能高达5倍甚至更多。 
+                在MySQL中系统默认的设置是sync_binlog=0，也就是不做任何强制性的磁盘刷新指令，这时候的性能是最好的，
+                但是风险也是最大的。因为一旦系统Crash，在 binlog_cache中的所有binlog信息都会被丢失。而当设置为“1”
+                的时候，是最安全但是性能损耗最大的设置。因为当设置为1的时候，即使系统Crash，
+                也最多丢失 binlog_cache中未完成的一个事务，对实际数据没有任何实质性影响。         
+                从以往经验和相关测试来看，对于高并发事务的系统来说，“sync_binlog”
+                设置为0和设置为1的系统写入性能差距可能高达5倍甚至更多。 
                 
             innodb_flush_log_at_trx_commit 配置说明： 
                 默认值1的意思是每一次事务提交或事务外的指令都需要把日志写入（flush）硬盘，这是很费时的。
                 特别是使用电 池供电缓存（Battery backed up cache）时。 设成2对于很多运用，
                 特别是从MyISAM表转过来的是可以的，它的意思是不写入硬盘而是写入系统缓存。日志仍 然会每秒flush到硬 盘，
-                所以你一般不会丢失超 过1-2秒的更新。设成0会更快一点，但安全方面比较差，即使MySQL挂了也可能会丢失事务的数据。
+                所以你一般不会丢失超 过1-2秒的更新。设成0会更快一点，但安全方面比较差，
+                即使MySQL挂了也可能会丢失事务的数据。
                 而值2只会 在整个操作系统 挂了时才可能丢数据。
         ```
         - 1.3.2 硬件
