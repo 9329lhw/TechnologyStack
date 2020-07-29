@@ -2,25 +2,26 @@
 #  1.项目构建
 ##  1.1.环境准备
 ###  1.1.1.运行环境
-		系统：Centos=>7.2
-		PHP=> 7.3
-		swoole=>4.15
-		mysql=>8.0
-		lavaral=>6.18
-		composer(版本没要求)
-		node.js(版本没要求)
+	系统：Centos=>7.2
+	PHP=> 7.3
+	swoole=>4.15
+	mysql=>8.0
+	lavaral=>6.18
+	composer(版本没要求)
+	node.js(版本没要求)
 ###  1.1.2.运行环境搭建
 ####  1.1.2.1.php+swoole+mysql
-		推荐使用宝塔(略)
-		yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
+	推荐使用宝塔(略)
+	yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
 ####  1.1.2.1.laravel安装
-		composer create-project --prefer-dist laravel/laravel blog "6.*"
+	composer create-project --prefer-dist laravel/laravel blog "6.*"
 		
 #  2.微信授权登录
 ##  2.1.微信测试号申请
 ###  2.1.1.账号申请
-		微信公众号测试号获取地址：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
+	微信公众号测试号获取地址：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729094616107.png)
+![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)
 ###  2.1.2.账号设置
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729095007844.png)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729095019113.png)
@@ -113,11 +114,11 @@ Route::get('wxtoken','WeChateController@wxtoken');
 
 ##  2.3.esaywechat微信授权登录
 ###  2.3.1 安装
-		composer require "overtrue/laravel-wechat:~5.0"
+	composer require "overtrue/laravel-wechat:~5.0"
 ###  2.3.2 laravel整合
-		创建配置文件
-		php artisan vendor:publish --provider="Overtrue\LaravelWeChat\ServiceProvider"
-		修改配置文件
+	创建配置文件
+	php artisan vendor:publish --provider="Overtrue\LaravelWeChat\ServiceProvider"
+	修改配置文件
 ```
 /www/wwwroot/lms/blog/config/wechat.php
   /*
