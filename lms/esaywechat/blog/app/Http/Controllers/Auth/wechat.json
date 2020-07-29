@@ -1,0 +1,29 @@
+{
+  "button":
+  [
+    {
+      "type": "view",
+      "name": "进入商城",
+      "url": "http://lms-shops.com/WeChat"
+      },
+      {
+        "name": "菜单",
+        "sub_button": [
+          {
+            "type": "view", 
+            "name": "我的订单",
+            "url": "http://lms-shops.com/order"
+            },
+            {
+              "type": "view",
+              "name": "购物车",
+              "url": "http://lms-shops.com/cart"
+              },
+              {
+                "type": "view",
+                "name": "个人中心",
+                "url": "http://lms-shops.com/member"
+                }
+                ]
+                }
+              ]
