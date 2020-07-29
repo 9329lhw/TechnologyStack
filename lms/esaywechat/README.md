@@ -20,12 +20,11 @@
 ##  2.1.微信测试号申请
 ###  2.1.1.账号申请
 	微信公众号测试号获取地址：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729094616107.png)
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)
+![在这里插入图片描述](asset/appid.png)
 ###  2.1.2.账号设置
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729095007844.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729095019113.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729095028235.png)
+![在这里插入图片描述](asset/js.png)
+![在这里插入图片描述](asset/auth.png)
+![在这里插入图片描述](asset/auth2.png)
 
 ##  2.2.laravel微信授权登录
 	网页授权流程分为四步：
@@ -110,7 +109,7 @@ Route::get('wxtoken','WeChateController@wxtoken');
 ?>
 ```
 	运行结果
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729100841723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4NjEzMDgx,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](asset/authinfo.png)
 
 ##  2.3.esaywechat微信授权登录
 ###  2.3.1 安装
@@ -172,7 +171,7 @@ WECHAT_OFFICIAL_ACCOUNT_SECRET = 30f97ea22284973ec18efe628ef69562
     dd($wechat); //打印出授权用户资料})->middleware('Auth.WeChat');
 
 ###  2.3.3 常见问题
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2020072910211013.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4NjEzMDgx,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](asset/err1.png)
 		
 	这个错误是因为我们并没授权登录，在esaywechat拉取授权登录信息的时候重定向头信息验证出现异常。
 	解决：可以通过修改中间件代码去解决问题
@@ -187,7 +186,7 @@ WECHAT_OFFICIAL_ACCOUNT_SECRET = 30f97ea22284973ec18efe628ef69562
 	return r$officialAccount->oauth->scopes($scope)->redirect($request->fullUrl())；
 	?>
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729102711710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4NjEzMDgx,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](asset/err1.png)
 
 	这个错误是因为id为int导致的remember_token不通过auth。
 	解决：可以通过修改中间件代码去解决问题
