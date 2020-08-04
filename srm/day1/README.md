@@ -2,21 +2,25 @@
 # docker
 ## 初识docker
 	镜像：
-	    例如：一个镜像可以包含一个完整的 ubuntu 操作系统环境，里面仅安装了 Apache 或用户需要的其它应用程序。也有比如PHP镜像，nginx镜像。 
-	    镜像可以用来创建 Docker 容器。用户可以直接 从其他人那里下载一个已经做好的镜像来直接使用。
+	    例如：一个镜像可以包含一个完整的 ubuntu 操作系统环境，里面仅安装了 Apache 或用
+	    户需要的其它应用程序。也有比如PHP镜像，nginx镜像。镜像可以用来创建 Docker 容器。
+	    用户可以直接 从其他人那里下载一个已经做好的镜像来直接使用。
 	    能通俗点：
 	        一个镜像好比是一个盗版的windows光碟文件，它可以装无数个window系统。
 	        同样的，一个PHP docker镜像，也可以装无数个PHP。
 	容器：
-	    镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。
-	    容器可以被创建、启动、停止、删除、暂停等。
+	    镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，
+	    容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。
 	    能通俗点：
-	        一个镜像好比是一个盗版的windows光碟文件，它可以装无数个window系统。装好了的系统，你可以理解为一个容器。
+	        一个镜像好比是一个盗版的windows光碟文件，它可以装无数个window系统。装好了的系统，
+	        你可以理解为一个容器。
 	        同样的，一个PHP docker镜像，也可以装无数个PHP，装好了的PHP，就是一个docker容器。
 	仓库：
 	    仓库是集中存放镜像文件的场所。
-	    有时候会把仓库和仓库注册服务器（Registry）混为一谈，并不严格区分。实际上，仓库注册服务器上往往存放着多个仓库， 每个仓库中又包含了多个镜像，每个镜像有不同的标签（tag）。 
-	    仓库分为公开仓库（Public）和私有仓库（Private）两种形式。 最大的公开仓库是 Docker Hub，存放了数量庞大的镜像供用户下载。
+	    有时候会把仓库和仓库注册服务器（Registry）混为一谈，并不严格区分。实际上，仓库注册服务器上
+	    往往存放着多个仓库， 每个仓库中又包含了多个镜像，每个镜像有不同的标签（tag）。 
+	    仓库分为公开仓库（Public）和私有仓库（Private）两种形式。 
+	    最大的公开仓库是 Docker Hub，存放了数量庞大的镜像供用户下载。
 ## 安装
 	 -- 1. 卸载老版本 
 	 yum -y remove docker docker-common docker-selinux docker-engine 
@@ -212,76 +216,77 @@ ENTRYPOINT ["/usr/local/nginx/sbin/nginx","-c","/conf/nginx.conf","-g","daemon o
 	没有报错说明lrmp搭建成功
 # docker-compose
 ##  docker-compose安装
-	curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+	curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.5
+	/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
 	docker-compose --version
 
 ##  构建lrnp环境
 `docker-compose.yml`
 ```
-# 编排php,redis,nginx容器
-version: "3.6" # 确定docker-composer文件的版本
-services: # 代表就是一组服务 - 简单来说一组容器
-  nginx: # 这个表示服务的名称，课自定义; 注意不是容器名称
-    build: # 根据dockerfile构建镜像及构建为容器
-      context: ./nginx
-    image: nginx # 指定容器的镜像文件
-    container_name: nginx_compose # 这是容器的名称
-    ports: # 配置容器与宿主机的端口
-      - "82:80"
-    networks: ## 引入外部预先定义的网段
-       lrnp:
-         ipv4_address: 172.100.100.110   #设置ip地址
-    privileged: true # 执行特殊权限的命令
-    volumes: # 配置数据挂载
-        - /home/lrnp/nginx/conf:/conf
-    working_dir: /conf #工作目录
-  php: # 这个表示服务的名称，课自定义; 注意不是容器名称
-    build: # 根据dockerfile构建镜像及构建为容器
-      context: ./php
-    image: php7 # 指定容器的镜像文件
-  nginx: # 这个表示服务的名称，课自定义; 注意不是容器名称
-    build: # 根据dockerfile构建镜像及构建为容器
-      context: ./nginx
-    image: nginx # 指定容器的镜像文件
-    container_name: nginx_compose # 这是容器的名称
-    ports: # 配置容器与宿主机的端口
-      - "82:80"
-    networks: ## 引入外部预先定义的网段
-       lrnp:
-         ipv4_address: 172.100.100.110   #设置ip地址
-    privileged: true # 执行特殊权限的命令
-    volumes: # 配置数据挂载
-        - /home/lrnp/nginx/conf:/conf
-    working_dir: /conf #工作目录
-  php: # 这个表示服务的名称，课自定义; 注意不是容器名称
-    build: # 根据dockerfile构建镜像及构建为容器
-      context: ./php
-    image: php7 # 指定容器的镜像文件
-    container_name: php_compose # 这是容器的名称
-    ports: # 配置容器与宿主机的端口
-      - "9002:9000"
-    networks: ## 引入外部预先定义的网段
-       lrnp:
-         ipv4_address: 172.100.100.120   #设置ip地址
-    volumes: # 配置数据挂载
-        - /home/lrnp/php/www:/www
-  redis: # 这个表示服务的名称，课自定义; 注意不是容器名称
-    image: redis5 # 指定容器的镜像文件
-    networks: ## 引入外部预先定义的网段
-       lrnp:
-         ipv4_address: 172.100.100.130   #设置ip地址
-    container_name: redis_compose # 这是容器的名称
-    ports: # 配置容器与宿主机的端口
-      - "6381:6379"
-    volumes: # 配置数据挂载
-        - /home/lrnp/redis:/redis
-# 设置网络模块
-networks:
-  # 使用之前定义的网络
-  lrnp:
-    external:
-      name: lrnp
+    # 编排php,redis,nginx容器
+    version: "3.6" # 确定docker-composer文件的版本
+    services: # 代表就是一组服务 - 简单来说一组容器
+      nginx: # 这个表示服务的名称，课自定义; 注意不是容器名称
+        build: # 根据dockerfile构建镜像及构建为容器
+          context: ./nginx
+        image: nginx # 指定容器的镜像文件
+        container_name: nginx_compose # 这是容器的名称
+        ports: # 配置容器与宿主机的端口
+          - "82:80"
+        networks: ## 引入外部预先定义的网段
+           lrnp:
+             ipv4_address: 172.100.100.110   #设置ip地址
+        privileged: true # 执行特殊权限的命令
+        volumes: # 配置数据挂载
+            - /home/lrnp/nginx/conf:/conf
+        working_dir: /conf #工作目录
+      php: # 这个表示服务的名称，课自定义; 注意不是容器名称
+        build: # 根据dockerfile构建镜像及构建为容器
+          context: ./php
+        image: php7 # 指定容器的镜像文件
+      nginx: # 这个表示服务的名称，课自定义; 注意不是容器名称
+        build: # 根据dockerfile构建镜像及构建为容器
+          context: ./nginx
+        image: nginx # 指定容器的镜像文件
+        container_name: nginx_compose # 这是容器的名称
+        ports: # 配置容器与宿主机的端口
+          - "82:80"
+        networks: ## 引入外部预先定义的网段
+           lrnp:
+             ipv4_address: 172.100.100.110   #设置ip地址
+        privileged: true # 执行特殊权限的命令
+        volumes: # 配置数据挂载
+            - /home/lrnp/nginx/conf:/conf
+        working_dir: /conf #工作目录
+      php: # 这个表示服务的名称，课自定义; 注意不是容器名称
+        build: # 根据dockerfile构建镜像及构建为容器
+          context: ./php
+        image: php7 # 指定容器的镜像文件
+        container_name: php_compose # 这是容器的名称
+        ports: # 配置容器与宿主机的端口
+          - "9002:9000"
+        networks: ## 引入外部预先定义的网段
+           lrnp:
+             ipv4_address: 172.100.100.120   #设置ip地址
+        volumes: # 配置数据挂载
+            - /home/lrnp/php/www:/www
+      redis: # 这个表示服务的名称，课自定义; 注意不是容器名称
+        image: redis5 # 指定容器的镜像文件
+        networks: ## 引入外部预先定义的网段
+           lrnp:
+             ipv4_address: 172.100.100.130   #设置ip地址
+        container_name: redis_compose # 这是容器的名称
+        ports: # 配置容器与宿主机的端口
+          - "6381:6379"
+        volumes: # 配置数据挂载
+            - /home/lrnp/redis:/redis
+    # 设置网络模块
+    networks:
+      # 使用之前定义的网络
+      lrnp:
+        external:
+          name: lrnp
 
 ```
 	执行compose命令
