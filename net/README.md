@@ -1,12 +1,12 @@
-# 五大io模型
+# 计算机网络
 
 #### 目录：
-- [x] [阻塞式I/O模型](blocking) 
+- [x] [五大io模型](io) 
 
-- [x] [非阻塞式I/O模型](noblocking)
+- [x] [网络完全](safety)
  
-- [x] [I/O复用模型](multiplexing) 
+- [x] [http常见状态码](http) 
   
-- [x] [信号驱动式I/O模型](signal) 
+- [x] [其它](other) 
+
  
-- [x] [异步I/O模型](asynchronous) 
