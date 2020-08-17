@@ -221,22 +221,269 @@ nginx如何调用PHP(nginx+php运行原理)
          }
       
      }`
-### 5
-### 6
+### 5.门面模式
+    `interface Shape{
+         public function draw();
+     }
+     
+     class Circle implements Shape{
+         public function draw() {
+             echo "画一个原型";
+         }
+     }
+     class Rectangle implements Shape{
+         public function draw() {
+             echo "画一个矩形";
+         }
+     }
+     
+     class Square implements Shape{
+         public function draw() {
+             echo "画一个正方形";
+         }
+     }
+     
+     class ShapeMark{
+         public $circle;
+         public $rectangle;
+         public $square;
+         public function __construct() {
+             $this->circle = new Circle();
+             $this->square = new Square();
+             $this->rectangle = new Rectangle();
+         }
+         
+         public function drawCircle(){
+             $this->circle->draw();
+         }
+         public function drawSquare(){
+             $this->square->draw();
+         }
+         public function drawRectangle(){
+             $this->rectangle->draw();
+         }
+     }
+     
+     $shapemark = new ShapeMark();
+     $shapemark->drawCircle();
+     $shapemark->drawRectangle();
+     $shapemark->drawSquare();`
+
 ## 自动加载原理
-## laravel，thinkphp运行原理
+    https://segmentfault.com/a/1190000014948542
+    1.启动
+    <?php
+      define('LARAVEL_START', microtime(true));
+    
+      require __DIR__ . '/../vendor/autoload.php';
+      
+    去 vendor 目录下的 autoload.php ：
+    <?php
+      require_once __DIR__ . '/composer' . '/autoload_real.php';
+    
+      return ComposerAutoloaderInit7b790917ce8899df9af8ed53631a1c29::getLoader();
+      
+    2.Composer自动加载文件
+    3.autoload_real 引导类
+        第一部分——单例
+        第二部分——构造ClassLoader核心类
+        第三部分 —— 初始化核心类对象
+            autoload_static 静态初始化 ( PHP >= 5.6 )
+            classMap（命名空间映射）
+            ClassLoader 接口初始化（ PHP < 5.6 ）
+            命名空间映射
+        第四部分 —— 注册
+            全局函数的自动加载
+            静态初始化：
+            普通初始化
+            加载全局函数
+        第五部分 —— 运行
+        
+    我们通过举例来说下上面代码的流程：
+    如果我们在代码中写下 new phpDocumentor\Reflection\Element()，PHP 会通过 SPL_autoload_register 调用 
+    loadClass -> findFile -> findFileWithExtension。步骤如下：
+    将 \ 转为文件分隔符/，加上后缀php，变成 $logicalPathPsr4, 即 phpDocumentor/Reflection//Element.php;
+    利用命名空间第一个字母p作为前缀索引搜索 prefixLengthsPsr4 数组，查到下面这个数组：
+            p' => 
+                array (
+                    'phpDocumentor\\Reflection\\' => 25,
+                    'phpDocumentor\\Fake\\' => 19,
+              )
+    遍历这个数组，得到两个顶层命名空间 phpDocumentor\Reflection\ 和 phpDocumentor\Fake\
+    在这个数组中查找 phpDocumentor\Reflection\Element，找出 phpDocumentor\Reflection\ 这个顶层命名空间并且长度为25。
+    在prefixDirsPsr4 映射数组中得到phpDocumentor\Reflection\ 的目录映射为：
+        'phpDocumentor\\Reflection\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
+                1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+                2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            ),
+    遍历这个映射数组，得到三个目录映射；
+    查看 “目录+文件分隔符//+substr(&dollar;logicalPathPsr4, &dollar;length)”文件是否存在，存在即返回。这里就是
+    '__DIR__/../phpdocumentor/reflection-common/src + substr(phpDocumentor/Reflection/Element.php,25)'
+    如果失败，则利用 fallbackDirsPsr4 数组里面的目录继续判断是否存在文件
+    以上就是 composer 自动加载的原理解析！
+    
+## laravel,yii,thinkphp运行原理
+    Laravel 的生命周期
+    1、Laravel 采用了单一入口模式，应用的所有请求入口都是 public/index.php 文件。
+    2、注册类文件自动加载器 : Laravel通过 composer 进行依赖管理，无需开发者手动导入各种类文件，、
+    而由自动加载器自行导入。
+    3、创建服务容器：从 bootstrap/app.php 文件中取得 Laravel 应用实例 $app (服务容器)
+    创建 HTTP / Console 内核：传入的请求会被发送给 HTTP 内核或者 console 内核进行处理
+    4、载入服务提供者至容器：在内核引导启动的过程中最重要的动作之一就是载入服务提供者到
+    你的应用，服务提供者负责引导启动框架的全部各种组件，例如数据库、队列、验证器以及路由组件。
+    5、分发请求：一旦应用完成引导和所有服务提供者都注册完成，Request 将会移交给路由进行
+    分发。路由将分发请求给一个路由或控制器，同时运行路由指定的中间件
+![RUNOOB 图标](asset/laravel.png)       
+ 
+    Yii2生命周期
+    1.用户向入口脚本 web/index.php 发起请求。
+    2.入口脚本加载应用配置并创建一个应用 实例去处理请求。
+    3.应用通过请求组件解析请求的 路由。
+    4.应用创建一个控制器实例去处理请求。
+    5.控制器创建一个动作实例并针对操作执行过滤器。
+    6.如果任何一个过滤器返回失败，则动作取消。
+    7.如果所有过滤器都通过，动作将被执行。
+    8.动作会加载一个数据模型，或许是来自数据库。
+    9.动作会渲染一个视图，把数据模型提供给它。
+    10.渲染结果返回给响应组件。
+    11.响应组件发送渲染结果给用户浏览器。
+![RUNOOB 图标](asset/yii.jpg) 
+
+    ThinkPHP生命周期
+![RUNOOB 图标](asset/tp.jpg)    
 ## 算法
 ### 10大排序算法
-#### 1.
-#### 2.
-#### 3.
+#### 1.冒泡排序
+    `$data = [23, 45, 8, 11, 10, 31, 55, 96, 30, 22];
+     $len = count($data);
+     
+     for ($i = 0; $i < $len - 1; $i++) {
+         for ($j = 0; $j < $len - $i - 1; $j++) {
+             if ($data[$j + 1] < $data[$j]) {
+                 $tmp = $data[$j + 1];
+                 $data[$j + 1] = $data[$j];
+                 $data[$j] = $tmp;
+             }
+         }
+     }`
+#### 2.快速排序
+    `function quick($originalData) {
+         $lenght = count($originalData);
+     
+         if ($lenght <= 1) {
+             return $originalData;
+         }
+     
+     
+         $pivot = threeMiddleValue($originalData, 0, $lenght - 1);
+     
+         $leftData = [];
+         $rightData = [];
+     
+         for ($i = 0; $i < $lenght; $i++) {
+             if ($originalData[$i] < $pivot) {
+                 $leftData[] = $originalData[$i];
+             } else if ($originalData[$i] > $pivot) {
+                 $rightData[] = $originalData[$i];
+             }
+         }
+     
+         $leftData = quick($leftData);
+         $rightData = quick($rightData);
+     
+         return array_merge($leftData, [$pivot], $rightData);
+     }
+     
+     function threeMiddleValue($arr, $left, $right) {
+         $result = null;
+     
+         $middle = floor(($left + $right) / 2);
+     
+         if ($arr[$left] > $arr[$right]) {
+             if ($arr[$left] < $arr[$middle]) {
+                 $result = $arr[$left];
+             } else if ($arr[$right] > $arr[$middle]) {
+                 $result = $arr[$right];
+             } else {
+                 $result = $arr[$middle];
+             }
+         } else {
+             if ($arr[$right] < $arr[$middle]) {
+                 $result = $arr[$right];
+             } else if ($arr[$left] > $arr[$middle]) {
+                 $result = $arr[$left];
+             } else {
+                 $result = $arr[$middle];
+             }
+         }
+     
+         return $result;
+     }
+     
+     $testData = [7, 3, 10, 5, 1, 8];
+     print_r(quick($testData));`
+#### 3.选择排序
+    `$data = [12, 55, 99, 22, 33, 25, 11, 44, 78];
+     $len = count($data);
+     for ($i = 0; $i < $len - 1; $i++) {
+         $tmp = $data[$i];
+         $tmpKey = $i;
+         for ($j = $i; $j < $len; $j++) {
+             if ($tmp > $data[$j]) {
+                 $tmp = $data[$j];
+                 $tmpKey = $j;
+             }
+         }
+     
+         if ($tmpKey != $i) {
+             $data[$tmpKey] = $data[$i];
+             $data[$i] = $tmp;
+         }
+     }`
+#### 4.堆排序
+#### 5.插入排序
+    `$data = [155, 19, 88, 12, 40, 29, 1, 23];
+     $len = count($data);
+     
+     for ($i = 0; $i < $len; $i++) {
+         for ($j = $i; $j > 0; $j--) {
+             if ($data[$j - 1] > $data[$j]) {
+                 $tem = $data[$j - 1];
+                 $data[$j - 1] = $data[$j];
+                 $data[$j] = $tem;
+             }else{
+                 break;
+             }
+         }
+     }
+     print_r($data);`
 ### 7大查找算法
-#### 1.
-#### 2.
-#### 3.
+#### 1.二分查找
+#### 2.折半查找
 
 ## mysql
 ### 主从复制
+    1.数据库有个bin-log二进制文件，记录了所有sql语句。
+    2.我们的目标就是把主数据库的bin-log文件的sql语句复制过来。
+    3.让其在从数据的relay-log重做日志文件中再执行一次这些sql语句即可。
+    4.下面的主从配置就是围绕这个原理配置
+    5.具体需要三个线程来操作：
+        1.binlog输出线程:每当有从库连接到主库的时候，主库都会创建一个线程然后发送binlog内容到从库。在从库里，当复制开始的时候，
+        从库就会创建两个线程进行处理：
+        2.从库I/O线程:当START SLAVE语句在从库开始执行之后，从库创建一个I/O线程，该线程连接到主库并请求主库发送binlog里面的更
+        新记录到从库上。从库I/O线程读取主库的binlog输出线程发送的更新并拷贝这些更新到本地文件，其中包括relay log文件。
+        3.从库的SQL线程:从库创建一个SQL线程，这个线程读取从库I/O线程写到relay log的更新事件并执行。
+![RUNOOB 图标](asset/mysqlmslave.png)  
+    
+    步骤一：主库db的更新事件(update、insert、delete)被写到binlog
+    步骤二：从库发起连接，连接到主库
+    步骤三：此时主库创建一个binlog dump thread线程，把binlog的内容发送到从库
+    步骤四：从库启动之后，创建一个I/O线程，读取主库传过来的binlog内容并写入到relay log.
+    步骤五：还会创建一个SQL线程，从relay log里面读取内容，从Exec_Master_Log_Pos位置开始执行
+    读取到的更新事件，将更新内容写入到slave的db.
+### 主从延时
 ### 分库分表
 ### 高可用
 
@@ -253,7 +500,35 @@ nginx如何调用PHP(nginx+php运行原理)
     redis的瓶颈最有可能是机器内存或者网络带宽，单线程容易实现且cpu
     不会成为瓶颈那就顺理成章的采用单线程方案
 ### 主从复制
+    全量复制
+    1.Redis 内部会发出一个同步命令，刚开始是 Psync 命令，Psync ? -1表示要求 master 主机同步数据
+    2.机会向从机发送 runid 和 offset，因为 slave 并没有对应的 offset，所以是全量复制
+    3.从机 slave 会保存 主机master 的基本信息 save masterInfo
+    4.主节点收到全量复制的命令后，执行bgsave（异步执行），在后台生成RDB文件（快照），并使用一个缓冲区（称为复制缓冲区）记录从现在开始执行的所有写命令
+    5.主机send RDB 发送 RDB 文件给从机
+    6.发送缓冲区数据
+    7.刷新旧的数据，从节点在载入主节点的数据之前要先将老数据清除
+    8.加载 RDB 文件将数据库状态更新至主节点执行bgsave时的数据库状态和缓冲区数据的加载。
+![RUNOOB 图标](asset/redismslave.png)
+
+    部分复制
+    1.如果网络抖动（连接断开 connection lost）
+    2.主机master 还是会写 replbackbuffer（复制缓冲区）
+    3.从机slave 会继续尝试连接主机
+    4.从机slave 会把自己当前 runid 和偏移量传输给主机 master，并且执行 pysnc 命令同步
+    5.如果 master 发现你的偏移量是在缓冲区的范围内，就会返回 continue 命令
+    6.同步了 offset 的部分数据，所以部分复制的基础就是偏移量 offset。
+![RUNOOB 图标](asset/redismslave_2.png) 
 ### 持久化
+    RDB手可以手动触发和自动触发：
+    ·手动触发：save 和 bgsave ，bgsave 是主流的触发 RDB 持久化方式
+    ·自动触发：
+        # 900s内至少达到一条写命令 save 900 1 
+        # 300s内至少达至10条写命令 save 300 10 
+        # 60s内至少达到10000条写命令 save 60 10000
+    AOF 重写过程可以手动触发和自动触发：
+    ·手动触发：直接调用 bgrewriteaof 命令。 
+    ·自动触发：根据 auto-aof-rewrite-min-size和auto-aof-rewrite-percentage 参数确定自动触发时机。
 ### 哨兵原理
 ### 集群
 ### 常见问题
@@ -288,10 +563,19 @@ nginx如何调用PHP(nginx+php运行原理)
 
 ## 网络
 ###  同步，异步，阻塞，非阻塞
+    同步：就是在发出一个功能调用时，在没有得到结果之前，该调用就不返回。
+    异步：和同步相对。当一个异步过程调用发出后，调用者不能立刻得到结果。
+    实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者
     阻塞：意思就是在哪里等待，要等别人执行完成才能往下去执行； 
     非阻塞：就是程序可以不用等待执行的结果， 就可以进行下一步的操作；
 ### 进程，线程，协成
-    
+    进程：进程，直观点说，保存在硬盘上的程序运行以后，会在内存空间里形成一个独立的内存体，
+    这个内存体有自己独立的地址空间，有自己的堆，上级挂靠单位是操作系统。操作系统会以进程为单位，
+    分配系统资源（CPU时间片、内存等资源），进程是资源分配的最小单位
+    线程：有时被称为轻量级进程(Lightweight Process，LWP），是操作系统调度
+    （CPU调度）执行的最小单位
+    协程：是一种比线程更加轻量级的存在，协程不是被操作系统内核所管理，而完全是由程序所控制
+    （也就是在用户态执行）。这样带来的好处就是性能得到了很大的提升，不会像线程切换那样消耗资源
 ### 三次握手
     所谓三次握手（Three-Way Handshake）即建立TCP连接，就是指建立一个
     TCP连接时，需要客户端和服务端总共发送3个包以确认连接的建立。在s
@@ -329,7 +613,7 @@ nginx如何调用PHP(nginx+php运行原理)
     第四次挥手：
     Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，
     确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手
-### 五大io
+### 五大io模型
     阻塞IO：
     非阻塞IO：
     信号驱动IO：
