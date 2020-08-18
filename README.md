@@ -483,7 +483,18 @@ nginx如何调用PHP(nginx+php运行原理)
     步骤四：从库启动之后，创建一个I/O线程，读取主库传过来的binlog内容并写入到relay log.
     步骤五：还会创建一个SQL线程，从relay log里面读取内容，从Exec_Master_Log_Pos位置开始执行
     读取到的更新事件，将更新内容写入到slave的db.
+    
+    MySQL数据库复制操作大致可以分成三个步骤：
+    1.主服务器将数据的改变记录到二进制日志（binary log）中。 
+    2.从服务器将主服务器的binary log events 复制到它的中继日志（relay log）中。 
+    3.从服务器重做中继日志中的事件，将数据的改变与从服务器保持同步。
+    
+    
 ### 主从延时
+    我们可以使用percona-toolkit工具做校验，而该工具包含 
+    1. pt-table-checksum 负责检测MySQL主从数据一致性 
+    2. pt-table-sync负责挡住从数据不一致时修复数据，让他们保存数据的一致性 
+    3. pt-heartbeat 负责监控MySQL主从同步延迟
 ### 分库分表
 ### 高可用
 
