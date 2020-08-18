@@ -60,11 +60,16 @@ php五种运行模式
 nginx如何调用PHP(nginx+php运行原理)
 
     https://www.cnblogs.com/echojson/p/10830302.html
-    1.
-    2.
-    3.
-    4.
-    5.
+    1、nginx的worker进程直接管理每一个请求到nginx的网络请求。
+    2、对于php而言，由于在整个网络请求的过程中php是一个cgi程序的角色，所以采用名为php-fpm的进程管理程序来对这些被请求的php程序进行管理。php-fpm程序也如同nginx一样，需要监听端口，并且有master和worker进程。worker进程直接管理每一个php进程。
+    3、关于fastcgi：fastcgi是一种进程管理器，管理cgi进程。市面上有多种实现了fastcgi功能的进程管理器，php-fpm就是其中的一种。再提一点，php-fpm作为一种fast-cgi进程管理服务，会监听端口，一般默认监听9000端口，并且是监听本机，也就是只接收来自本机的
+    端口请求，所以我们通常输入命令 netstat -nlpt|grep php-fpm 会得到：
+    1   tcp        0      0 127.0.0.1:9000              0.0.0.0:*                   LISTEN      1057/php-fpm
+    这里的127.0.0.1:9000 就是监听本机9000端口的意思。
+    4、关于fastcgi的配置文件，目前fastcgi的配置文件一般放在nginx.conf同级目录下，配置文件形式，一般有两种：fastcgi.conf  和 fastcgi_params。不同的nginx版本会有不同的配置文件，这两个配置文件有一个非常重要的区别：fastcgi_parames文件中缺少下列配置：
+    fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+    我们可以打开fastcgi_parames文件加上上述行，也可以在要使用配置的地方动态添加。使得该配置生效。
+    5、当需要处理php请求时，nginx的worker进程会将请求移交给php-fpm的worker进程进行处理，也就是最开头所说的nginx调用了php，其实严格得讲是nginx间接调用php。
 ### 常见函数
     array_pop() 删除数组的最后一个元素（出栈）。
     array_push() 将一个或多个元素插入数组的末尾（入栈）。
