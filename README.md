@@ -273,7 +273,6 @@ nginx如何调用PHP(nginx+php运行原理)
      $shapemark->drawCircle();
      $shapemark->drawRectangle();
      $shapemark->drawSquare();`
-
 ## 自动加载原理
     https://segmentfault.com/a/1190000014948542
     1.启动
@@ -467,34 +466,52 @@ nginx如何调用PHP(nginx+php运行原理)
 ### 7大查找算法
 #### 1.二分查找
 #### 2.折半查找
+## 场景开发
+### 秒杀，抢购
 
 ## mysql
-### 主从复制
-    1.数据库有个bin-log二进制文件，记录了所有sql语句。
-    2.我们的目标就是把主数据库的bin-log文件的sql语句复制过来。
-    3.让其在从数据的relay-log重做日志文件中再执行一次这些sql语句即可。
-    4.下面的主从配置就是围绕这个原理配置
-    5.具体需要三个线程来操作：
-        1.binlog输出线程:每当有从库连接到主库的时候，主库都会创建一个线程然后发送binlog内容到从库。在从库里，当复制开始的时候，
-        从库就会创建两个线程进行处理：
-        2.从库I/O线程:当START SLAVE语句在从库开始执行之后，从库创建一个I/O线程，该线程连接到主库并请求主库发送binlog里面的更
-        新记录到从库上。从库I/O线程读取主库的binlog输出线程发送的更新并拷贝这些更新到本地文件，其中包括relay log文件。
-        3.从库的SQL线程:从库创建一个SQL线程，这个线程读取从库I/O线程写到relay log的更新事件并执行。
-![RUNOOB 图标](asset/mysqlmslave.png)  
-    
-    步骤一：主库db的更新事件(update、insert、delete)被写到binlog
-    步骤二：从库发起连接，连接到主库
-    步骤三：此时主库创建一个binlog dump thread线程，把binlog的内容发送到从库
-    步骤四：从库启动之后，创建一个I/O线程，读取主库传过来的binlog内容并写入到relay log.
-    步骤五：还会创建一个SQL线程，从relay log里面读取内容，从Exec_Master_Log_Pos位置开始执行
-    读取到的更新事件，将更新内容写入到slave的db.
-    
-    MySQL数据库复制操作大致可以分成三个步骤：
-    1.主服务器将数据的改变记录到二进制日志（binary log）中。 
-    2.从服务器将主服务器的binary log events 复制到它的中继日志（relay log）中。 
-    3.从服务器重做中继日志中的事件，将数据的改变与从服务器保持同步。
-    
-    
+
+### mysql锁
+### mysql系统文件
+### mysql索引
+#### 从数据结构角度
+    1、B+树索引(O(log(n)))：关于B+树索引，可以参考 MySQL索引背后的数据结构及算法原理
+    2、hash索引：
+    a 仅仅能满足"=","IN"和"<=>"查询，不能使用范围查询
+    b 其检索效率非常高，索引的检索可以一次定位，不像B-Tree 索引需要从根节点到枝节点，
+    最后才能访问到页节点这样多次的IO访问，所以 Hash 索引的查询效率要远高于 B-Tree 索引
+    c 只有Memory存储引擎显示支持hash索引
+    3、FULLTEXT索引（现在MyISAM和InnoDB引擎都支持了）
+    4、R-Tree索引（用于对GIS数据类型创建SPATIAL索引）
+#### 从物理存储角度
+    1、聚集索引（clustered index）
+    2、非聚集索引（non-clustered index）
+    聚集索引和非聚集索引的区别如下：
+    　　1) 聚集索引和非聚集索引的根本区别是表记录的排列顺序和与索引的排列顺序是否一致，
+    聚集索引表记录的排列顺序与索引的排列顺序一致，优点是查询速度快，因为一旦
+    具有第一个索引值的纪录被找到，具有连续索引值的记录也一定物理的紧跟其后。
+    　　2) 聚集索引的缺点是对表进行修改速度较慢，这是为了保持表中的记录的物理顺序与索
+    引的顺序一致，而把记录插入到数据页的相应位置，必须在数据页中进行数据重排，
+    降低了执行速度。非聚集索引指定了表中记录的逻辑顺序，但记录的物理顺序和索引的顺序不
+    一致，聚集索引和非聚集索引都采用了B+树的结构，但非聚集索引的叶子层并不与实际的
+#### 从逻辑角度
+    1、主键索引：主键索引是一种特殊的唯一索引，不允许有空值
+    2、普通索引或者单列索引
+    3、多列索引（复合索引）：复合索引指多个字段上创建的索引，只有在查询条件中使用
+    了创建索引时的第一个字段，索引才会被使用。使用复合索引时遵循最左前缀集合
+    4、唯一索引或者非唯一索引
+    5、空间索引：空间索引是对空间数据类型的字段建立的索引，MYSQL中的空间数据类型有4种，
+    分别是GEOMETRY、POINT、LINESTRING、POLYGON。MYSQL使用SPATIAL关键字进行扩展，使得
+    能够用于创建正规索引类型的语法创建空间索引。创建空间索引的列，必须将其声明为NOT 
+    NULL，空间索引只能在存储引擎为MYISAM的表中创建
+    CREATE TABLE table_name[col_name data type]
+    [unique|fulltext|spatial][index|key][index_name](col_name[length])[asc|desc]
+    1、unique|fulltext|spatial为可选参数，分别表示唯一索引、全文索引和空间索引；
+    2、index和key为同义词，两者作用相同，用来指定创建索引
+    3、col_name为需要创建索引的字段列，该列必须从数据表中该定义的多个列中选择；
+    4、index_name指定索引的名称，为可选参数，如果不指定，MYSQL默认col_name为索引值；
+    5、length为可选参数，表示索引的长度，只有字符串类型的字段才能指定索引长度；
+    6、asc或desc指定升序或降序的索引值存储
 ### 主从延时
     我们可以使用percona-toolkit工具做校验，而该工具包含 
     1. pt-table-checksum 负责检测MySQL主从数据一致性 
@@ -628,7 +645,7 @@ nginx如何调用PHP(nginx+php运行原理)
     ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，
     ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，
     完成三次握手，随后Client与Server之间可以开始传输数据了。
- ### 四次挥手 
+### 四次挥手 
     所谓四次挥手（Four-Way Wavehand）即终止TCP连接，就是指断开一个TCP连接时，
     需要客户端和服务端总共发送4个包以确认连接的断开。在socket编程中，这一过
     程由客户端或服务端任一方执行close来触发，整个流程如下图所示：  
@@ -694,36 +711,22 @@ nginx如何调用PHP(nginx+php运行原理)
     504 Gateway Time-out PHP-CGI已经执行，但是由于某种原因(一般是读取资源的问题)
     没有执行完毕而导致PHP-CGI进程终止。
 ### 常用的信号量
-    
     SIGKILL 9 终止进程 杀死进程/关闭进程（暴力关闭）
     SIGUSR1 10 终止进程 用户定义信号1 
 ### 网络安全
     xss
-    
     csrf
-    
     点击劫持
-    
     传输安全(http窃听,http篡改)
-    
     中间人攻击
-    
     密码攻击
-    
     sql注入
-    
     文件上传
-    
     dos攻击
-    
     重放攻击
-    
     cc攻击
-    
     ARP欺骗
-    
     IP欺骗
-    
     SYN攻击：
     在三次握手过程中，Server发送SYN-ACK之后，收到Client的ACK之前的TCP连接称为半连接
     （half-open connect），此时Server处于SYN_RCVD状态，当收到ACK后，Server转入
@@ -734,4 +737,20 @@ nginx如何调用PHP(nginx+php运行原理)
     SYN攻击时一种典型的DDOS攻击，检测SYN攻击的方式非常简单，即当Server上有大量半连接
     状态且源IP地址是随机的，则可以断定遭到SYN攻击了，使用如下命令可以让之现行：
     #netstat -nap | grep SYN_RECV
+    
+## 并发
+### qps,tps,pv,uv,吞吐量
+    qps/tps: 每秒请求数
+        qps>1000可以称为高并发，一般的也就2,300左右也算ok的
+        常用的压测工具ab,jmeter
+        注：不要对线上数据进行压测
+    pv:问量,即页面浏览量或者点击量,用户每次对网站的访问均被记录1次。
+    用户对同一页面的多次访问，访问量值累计
+    uv:独立访客，将每个独立上网电脑（以cookie为依据）视为一位访客，
+    一天之内（00:00-24:00），访问您网站的访客数量。一天之内相同
+    cookie的访问只被计算1次
+        常键pv,uv检测：
+            1.第三方(百度)
+            2.nginx访问日志
+    吞吐量：单位时间内处理的任务数
 
