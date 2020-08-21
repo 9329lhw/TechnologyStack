@@ -470,7 +470,6 @@ nginx如何调用PHP(nginx+php运行原理)
 ### 秒杀，抢购
 
 ## mysql
-
 ### mysql锁
 ### mysql系统文件
 ### mysql索引
