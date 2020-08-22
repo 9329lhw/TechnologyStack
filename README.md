@@ -618,6 +618,12 @@ nginx如何调用PHP(nginx+php运行原理)
 ### 
 
 ## kafka
+    Kafka为什么那么快？
+    1.Cache Filesystem Cache PageCache缓存
+    2.顺序写 由于现代的操作系统提供了预读和写技术，磁盘的顺序写大多数情况下比随机写内存还要快。
+    3.Zero-copy 零拷技术减少拷贝次数
+    4.Batching of Messages 批量量处理。合并小的请求，然后以流的方式进行交互，直顶网络上限。
+    5.Pull 拉模式 使用拉模式进行消息的获取消费，与消费端处理能力相符。
 ### 
 
 ## 网络
@@ -745,7 +751,7 @@ nginx如何调用PHP(nginx+php运行原理)
     正常的SYN请求因为队列满而被丢弃，从而引起网络堵塞甚至系统瘫痪。
     SYN攻击时一种典型的DDOS攻击，检测SYN攻击的方式非常简单，即当Server上有大量半连接
     状态且源IP地址是随机的，则可以断定遭到SYN攻击了，使用如下命令可以让之现行：
-    #netstat -nap | grep SYN_RECV
+    #netstat -nap | grep SYN_RECV  
     
 ## 并发
 ### qps,tps,pv,uv,吞吐量
