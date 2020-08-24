@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="44507bc4-3a7d-4bae-873f-7852ea0cecb1" name="Default" comment="" />
+    <ignored path="miaosha.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="miaosha" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0" vertical-offset="567" max-vertical-offset="729">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/init.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="756">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_local.inc.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/_local.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="43" selection-start="810" selection-end="810" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="891">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="global.inc.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/function/global.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="96" column="0" selection-start="2388" selection-end="2388" vertical-scroll-proportion="0.0" vertical-offset="2592" max-vertical-offset="3105">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="function.inc.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/function/function.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="167" column="0" selection-start="3390" selection-end="3390" vertical-scroll-proportion="0.12162162" vertical-offset="4671" max-vertical-offset="14472">
+              <folding>
+                <element signature="e#6#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/conf/_local.inc.php" />
+        <option value="$PROJECT_DIR$/conf/db.ini.php" />
+        <option value="$PROJECT_DIR$/views/admin/common/navigation.php" />
+        <option value="$PROJECT_DIR$/views/admin/common/header.php" />
+        <option value="$PROJECT_DIR$/views/admin/common/footer.php" />
+        <option value="$PROJECT_DIR$/class/Mysql/Crud.php" />
+        <option value="$PROJECT_DIR$/views/admin/active_list.php" />
+        <option value="$PROJECT_DIR$/web/admin/index.php" />
+        <option value="$PROJECT_DIR$/web/admin/goods.php" />
+        <option value="$PROJECT_DIR$/web/admin/question.php" />
+        <option value="$PROJECT_DIR$/class/model/Log.php" />
+        <option value="$PROJECT_DIR$/web/admin/log.php" />
+        <option value="$PROJECT_DIR$/web/index.php" />
+        <option value="$PROJECT_DIR$/class/model/Question.php" />
+        <option value="$PROJECT_DIR$/web/test_string.php" />
+        <option value="$PROJECT_DIR$/web/question.php" />
+        <option value="$PROJECT_DIR$/web/cart.php" />
+        <option value="$PROJECT_DIR$/web/trade.php" />
+        <option value="$PROJECT_DIR$/web/login.php" />
+        <option value="$PROJECT_DIR$/web/pay.php" />
+        <option value="$PROJECT_DIR$/readme" />
+        <option value="$PROJECT_DIR$/class/common/DebugLog.php" />
+        <option value="$PROJECT_DIR$/web/init.php" />
+        <option value="$PROJECT_DIR$/web/admin/init.php" />
+        <option value="$PROJECT_DIR$/readme.txt" />
+        <option value="$PROJECT_DIR$/conf/array.ini.php" />
+        <option value="$PROJECT_DIR$/class/model/Active.php" />
+        <option value="$PROJECT_DIR$/class/model/Trade.php" />
+        <option value="$PROJECT_DIR$/web/admin/trade.php" />
+        <option value="$PROJECT_DIR$/views/admin/active_edit.php" />
+        <option value="$PROJECT_DIR$/class/common/CoreFunction.php" />
+        <option value="$PROJECT_DIR$/class/common/SysPager.php" />
+        <option value="$PROJECT_DIR$/class/common/Datasource.php" />
+        <option value="$PROJECT_DIR$/conf/redis.ini.php" />
+        <option value="$PROJECT_DIR$/function/function.inc.php" />
+        <option value="$PROJECT_DIR$/web/admin/active.php" />
+        <option value="$PROJECT_DIR$/views/admin/goods_edit.php" />
+        <option value="$PROJECT_DIR$/class/Mysql/Db.php" />
+        <option value="$PROJECT_DIR$/views/trade.php" />
+        <option value="$PROJECT_DIR$/views/admin/trade_list.php" />
+        <option value="$PROJECT_DIR$/web/buy_new.php" />
+        <option value="$PROJECT_DIR$/views/list_new.php" />
+        <option value="$PROJECT_DIR$/web/list.php" />
+        <option value="$PROJECT_DIR$/web/astatus/1_1.js" />
+        <option value="$PROJECT_DIR$/class/model/Goods_New.php" />
+        <option value="$PROJECT_DIR$/class/model/Active_New.php" />
+        <option value="$PROJECT_DIR$/web/astatus.php" />
+        <option value="$PROJECT_DIR$/views/list.php" />
+        <option value="$PROJECT_DIR$/web/buy.php" />
+        <option value="$PROJECT_DIR$/class/model/Goods.php" />
+        <option value="$PROJECT_DIR$/function/global.inc.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CoffeeScript</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="miaosha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="miaosha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="miaosha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="miaosha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="miaosha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="miaosha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="miaosha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="miaosha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="miaosha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="function" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="editor" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="SearchEverywhereHistory" value="dcXxxxxcxcxzxcx&#10;Zmmmmmmmmmmmmmm.≥mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm ,,,,,,,,,mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmz,zmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" />
+    <property name="FullScreen" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/class/model" />
+      <recent name="$PROJECT_DIR$/views" />
+      <recent name="$PROJECT_DIR$/web/admin" />
+      <recent name="$PROJECT_DIR$/web" />
+      <recent name="$PROJECT_DIR$/web/phpmyadmin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/class" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="44507bc4-3a7d-4bae-873f-7852ea0cecb1" name="Default" comment="" />
+      <created>1500085425019</created>
+      <updated>1500085425019</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2536349" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24798061" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/function/global.inc.php</url>
+          <line>73</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="miaosha" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="miaosha" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web/astatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="10" selection-start="816" selection-end="821" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1485" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/buy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="169" column="0" selection-start="4810" selection-end="4810" vertical-scroll-proportion="0.0" vertical-offset="4563" max-vertical-offset="5724" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/model/Goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="0" selection-start="2270" selection-end="2270" vertical-scroll-proportion="0.0" vertical-offset="1710" max-vertical-offset="2376" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/astatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="22" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1485" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/astatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="22" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1485" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="964" selection-end="964" vertical-scroll-proportion="-21.875" vertical-offset="0" max-vertical-offset="675" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/trade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="47" selection-start="222" selection-end="222" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="19" selection-start="166" selection-end="166" vertical-scroll-proportion="0.28616852" vertical-offset="0" max-vertical-offset="629" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/pay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="863" selection-end="863" vertical-scroll-proportion="0.8569157" vertical-offset="46" max-vertical-offset="675" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/forbidwords.ini.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="7" selection-end="7" vertical-scroll-proportion="-1.4193548" vertical-offset="0" max-vertical-offset="198" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="9" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.3480243" vertical-offset="783" max-vertical-offset="24772" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/db.ini.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="291" selection-end="291" vertical-scroll-proportion="0.4262295" vertical-offset="0" max-vertical-offset="671" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="6" selection-start="70" selection-end="70" vertical-scroll-proportion="0.2857143" vertical-offset="0" max-vertical-offset="792" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/common/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="6" selection-start="147" selection-end="147" vertical-scroll-proportion="-4.2580647" vertical-offset="0" max-vertical-offset="330" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/common/navigation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="56" selection-start="711" selection-end="711" vertical-scroll-proportion="0.43465045" vertical-offset="0" max-vertical-offset="658" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/common/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="42" selection-start="277" selection-end="277" vertical-scroll-proportion="0.29508197" vertical-offset="0" max-vertical-offset="671" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/model/Active.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="41" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.63221884" vertical-offset="288" max-vertical-offset="968" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/model/Trade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.7567568" vertical-offset="630" max-vertical-offset="1323" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/array.ini.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="18" selection-start="212" selection-end="230" vertical-scroll-proportion="-4.25" vertical-offset="225" max-vertical-offset="2106" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/active_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="41" selection-start="1281" selection-end="1281" vertical-scroll-proportion="-29.25" vertical-offset="0" max-vertical-offset="1593" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/common/CoreFunction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="50" selection-end="50" vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="10125" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/common/SysPager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="299" selection-end="299" vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="16119" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/common/DebugLog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="386" selection-end="403" vertical-scroll-proportion="0.12162162" vertical-offset="0" max-vertical-offset="11907" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/redis.ini.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="23" selection-start="336" selection-end="336" vertical-scroll-proportion="0.6486486" vertical-offset="0" max-vertical-offset="675" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="287" selection-end="287" vertical-scroll-proportion="0.3506891" vertical-offset="122" max-vertical-offset="1161" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/common/Datasource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="0" selection-start="5424" selection-end="5424" vertical-scroll-proportion="0.6981982" vertical-offset="4044" max-vertical-offset="7776" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/active_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="64" selection-start="349" selection-end="349" vertical-scroll-proportion="0.1891892" vertical-offset="90" max-vertical-offset="972" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/active.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="14" selection-start="2099" selection-end="2099" vertical-scroll-proportion="0.27027026" vertical-offset="1818" max-vertical-offset="2781" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/trade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="81" selection-start="953" selection-end="953" vertical-scroll-proportion="1.0135136" vertical-offset="54" max-vertical-offset="1512" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/goods_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="57" selection-start="1547" selection-end="1547" vertical-scroll-proportion="2.108108" vertical-offset="0" max-vertical-offset="1701" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/Mysql/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="0" selection-start="5082" selection-end="5082" vertical-scroll-proportion="0.3243243" vertical-offset="4347" max-vertical-offset="9234" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/goods_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="90" selection-start="1934" selection-end="1934" vertical-scroll-proportion="0.8918919" vertical-offset="540" max-vertical-offset="1377" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/trade_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="54" selection-start="2377" selection-end="2377" vertical-scroll-proportion="0.7297297" vertical-offset="1512" max-vertical-offset="2889" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/trade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="266" selection-end="266" vertical-scroll-proportion="0.44594595" vertical-offset="0" max-vertical-offset="3213" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/log_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1539" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="30" selection-start="295" selection-end="295" vertical-scroll-proportion="0.04054054" vertical-offset="378" max-vertical-offset="2808" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="12" selection-start="2393" selection-end="2393" vertical-scroll-proportion="-4.25" vertical-offset="1872" max-vertical-offset="2862" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/astatus/1_1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="105" selection-start="105" selection-end="105" vertical-scroll-proportion="0.03846154" vertical-offset="0" max-vertical-offset="702" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/Mysql/Crud.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="29" selection-start="2478" selection-end="2478" vertical-scroll-proportion="0.27718222" vertical-offset="2519" max-vertical-offset="4590" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="42" selection-start="3180" selection-end="3180" vertical-scroll-proportion="0.27027026" vertical-offset="2358" max-vertical-offset="3726" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/astatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="10" selection-start="816" selection-end="821" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1485" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/model/Goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="0" selection-start="2270" selection-end="2270" vertical-scroll-proportion="0.0" vertical-offset="1710" max-vertical-offset="2376" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/model/Question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="98" selection-start="774" selection-end="784" vertical-scroll-proportion="0.6891892" vertical-offset="351" max-vertical-offset="1053" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="19" selection-start="1873" selection-end="1873" vertical-scroll-proportion="0.0" vertical-offset="1809" max-vertical-offset="2025" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/buy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="30" selection-start="1559" selection-end="1573" vertical-scroll-proportion="1.5" vertical-offset="1620" max-vertical-offset="6156" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0" vertical-offset="567" max-vertical-offset="729">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/_local.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="43" selection-start="810" selection-end="810" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="891">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="756">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/function/global.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="0" selection-start="2388" selection-end="2388" vertical-scroll-proportion="0.0" vertical-offset="2592" max-vertical-offset="3105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/function/function.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="0" selection-start="3390" selection-end="3390" vertical-scroll-proportion="0.12162162" vertical-offset="4671" max-vertical-offset="14472">
+          <folding>
+            <element signature="e#6#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+
