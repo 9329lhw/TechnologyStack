@@ -685,6 +685,9 @@ nginx如何调用PHP(nginx+php运行原理)
     ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，
     ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，
     完成三次握手，随后Client与Server之间可以开始传输数据了。
+    
+    为什么要3次握手
+    防止已过期的连接请求报文突然又传送到服务器，因而产生错误。
 ### 四次挥手 
     所谓四次挥手（Four-Way Wavehand）即终止TCP连接，就是指断开一个TCP连接时，
     需要客户端和服务端总共发送4个包以确认连接的断开。在socket编程中，这一过
@@ -703,6 +706,16 @@ nginx如何调用PHP(nginx+php运行原理)
     第四次挥手：
     Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，
     确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手
+    
+    	先由客户端向服务器端发送一个FIN，请求关闭数据传输。
+	当服务器接收到客户端的FIN时，向客户端发送一个ACK，其中ack的值等于FIN+SEQ
+	然后服务器向客户端发送一个FIN，告诉客户端应用程序关闭。
+	当客户端收到服务器端的FIN是，回复一个ACK给服务器端。其中ack的值等于FIN+SEQ
+    	为什么要4次挥手？
+    	确保数据能够完成传输。
+
+	https://www.cnblogs.com/saolv/p/7807677.html
+	
 ### 五大io模型
     阻塞IO：
     非阻塞IO：
