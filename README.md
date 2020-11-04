@@ -601,6 +601,11 @@ nginx如何调用PHP(nginx+php运行原理)
         同时 Sentinel节点能够互相感知到对方。 
         第三个定时任务，指的是对每个节点和其它 Sentinel 进行心跳检测，它是失败判定的依据
 ### 集群
+#### 集群的几种方式（https://blog.csdn.net/drdongshiye/article/details/84204392）
+	一、单节点实例
+	二、主从模式（master/slaver）
+	三、sentinel模式
+	四、cluster模式
 ### 常见问题
     1.缓存穿透：查询一个数据库一定不存在的数据
     解决：
