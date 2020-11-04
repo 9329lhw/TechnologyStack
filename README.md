@@ -482,6 +482,8 @@ nginx如何调用PHP(nginx+php运行原理)
         文件锁的方式也是）
 ## mysql
 ### mysql锁
+
+	https://www.cnblogs.com/hhthtt/p/10707541.html
 ### mysql系统文件
 ### mysql索引
 #### 从数据结构角度
@@ -538,6 +540,13 @@ nginx如何调用PHP(nginx+php运行原理)
     异构索引表
     分库分表使用场景
     1.订单分库分表
+### 分布式
+	https://www.cnblogs.com/jajian/p/10014145.html
+	xa事务
+	2pc(两阶段提交)：第一次提交时准备操作，第二次提交时真正的提交-------------->产生的问题：数据不一致
+    	3pc(三阶段提交)：在2pc的基础上多了一次消息通知的阶段住要 第一次提交完了通知第二次进行提交--------->mysql官方暂时未实现
+    	tcc(TCC两阶段补偿型)：在2pc的基础上使用接口来处理事务的回滚操作
+	mq(最终一致性，幂等性)：使用rabbit ack高级特性
 ### 高可用
 
 ## redis
