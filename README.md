@@ -798,8 +798,13 @@ nginx如何调用PHP(nginx+php运行原理)
     #netstat -nap | grep SYN_RECV  
     
 ## 并发
-### qps,tps,pv,uv,吞吐量
-    qps/tps: 每秒请求数
+### rps,qps,tps,pv,uv,吞吐量
+    rps:代表吞吐率，即 Requests Per Second 的缩写。 
+    吞吐率是服务器并发处理能力的量化描述，
+    单位是 reqs/s，指的是某个并发用户数下单位时间内处理的请求数。
+        并发数/平均响应时间
+    tps：每秒查询数，每秒系统能够处理的查询请求次数
+    qps: 每秒请求数
         qps>1000可以称为高并发，一般的也就2,300左右也算ok的
         常用的压测工具ab,jmeter
         注：不要对线上数据进行压测
@@ -812,4 +817,5 @@ nginx如何调用PHP(nginx+php运行原理)
             1.第三方(百度)
             2.nginx访问日志
     吞吐量：单位时间内处理的任务数
+    https://www.huaweicloud.com/articles/e69c2d94805734d47a5b86d4f70b7d3b.html
 
